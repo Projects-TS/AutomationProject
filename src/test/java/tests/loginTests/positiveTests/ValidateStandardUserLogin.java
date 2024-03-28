@@ -1,10 +1,10 @@
 package tests.loginTests.positiveTests;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
+import org.testng.Assert;
 
 public class ValidateStandardUserLogin {
         private WebDriver driver;
@@ -31,18 +31,18 @@ public class ValidateStandardUserLogin {
         driver.findElement(By.id("login-button")).click();
 
         String currentURL = driver.getCurrentUrl();
-        Assert.assertEquals("URL does not match", "https://www.saucedemo.com/inventory.html", currentURL);
+        Assert.assertEquals(currentURL, "https://www.saucedemo.com/inventory.html", "URL does not match");
 
         WebElement productsTitleElement = driver.findElement(By.cssSelector("#header_container > div.header_secondary_container > span"));
         String actualProductsText = productsTitleElement.getText();
-        Assert.assertEquals("Products title text does not match", "Products", actualProductsText);
+        Assert.assertEquals(actualProductsText, "Products", "Products title text does not match");
         }
-       @AfterMethod
-       public void tearDownMethod() {
-       if (driver != null) {
-       driver.quit();}
-       }
-       }
+        @AfterMethod
+        public void tearDownMethod() {
+        if (driver != null) {
+        driver.quit();}
+        }
+        }
 
 
 

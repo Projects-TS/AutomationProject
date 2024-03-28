@@ -1,6 +1,6 @@
 package tests.loginTests.negativeTests;
 
-import org.junit.Assert;
+import org.testng.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,8 +33,8 @@ public class ValidateLockedUserError {
 
     WebElement errorElement = driver.findElement(By.cssSelector(".error-message-container.error"));
     String actualErrorMessage = errorElement.getText();
-    Assert.assertTrue("Actual error message was: '" + actualErrorMessage + "', but expected was: '" + expectedErrorMessage + "'",
-    actualErrorMessage.contains(expectedErrorMessage));
+    Assert.assertTrue(actualErrorMessage.contains(expectedErrorMessage),
+    "Actual error message was: '" + actualErrorMessage + "' but expected was: '" + expectedErrorMessage + "'");
     }
     @AfterMethod
     public void tearDown() {
