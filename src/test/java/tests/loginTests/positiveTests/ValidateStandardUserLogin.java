@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
 import org.testng.Assert;
+import tests.utils.TestUtils;
 
 public class ValidateStandardUserLogin {
         private WebDriver driver;
@@ -13,22 +14,9 @@ public class ValidateStandardUserLogin {
         driver = new ChromeDriver();
         driver.get("https://www.saucedemo.com/");
         }
-        @DataProvider(name = "userCredentials")
-        public Object[][] provideUserCredentials() {
-        return new Object[][]{
-        {"standard_user", "secret_sauce"},
-        {"problem_user", "secret_sauce"},
-        {"performance_glitch_user", "secret_sauce"},
-        {"error_user", "secret_sauce"},
-        {"visual_user", "secret_sauce"}};
-        }
-        @Test(dataProvider = "userCredentials")
+        @Test(dataProvider = "userCredentials", dataProviderClass = TestUtils.class)
         public void testLoginAndProductSelection(String username, String password) {
-        driver.findElement(By.id("user-name")).clear();
-        driver.findElement(By.id("user-name")).sendKeys(username);
-        driver.findElement(By.id("password")).clear();
-        driver.findElement(By.id("password")).sendKeys(password);
-        driver.findElement(By.id("login-button")).click();
+        TestUtils.performLogin(driver, username, password);
 
         String currentURL = driver.getCurrentUrl();
         Assert.assertEquals(currentURL, "https://www.saucedemo.com/inventory.html", "URL does not match");
