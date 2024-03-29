@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="CompleteLoginTestSuite">
-    <test name="NegativeTests">
+    <test name="SanityTests">
         <classes>
             <class name="tests.sanityTests.BuyProductsScenario"/>
         </classes>
@@ -10,7 +10,7 @@
             <class name="tests.loginTests.positiveTests.ValidateStandardUserLogin"/>
         </classes>
     </test>
-    <test name="SanityTests">
+    <test name="NegativeTests">
         <classes>
             <class name="tests.loginTests.negativeTests.ValidateLockedUserError"/>
         </classes>
