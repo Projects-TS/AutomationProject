@@ -7,7 +7,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Test;
+import tests.utils.TestUtils;
+
 import java.util.List;
+
+import static tests.utils.TestUtils.performLogin;
 
 public class BuyProductsScenario {
         private WebDriver driver;
@@ -18,11 +22,11 @@ public class BuyProductsScenario {
 
         @Test (testName = "productsScenario")
         public void testLoginAndProductSelection() {
-        driver.findElement(By.cssSelector("#user-name")).sendKeys("standard_user");
-        driver.findElement(By.cssSelector("#password")).sendKeys("secret_sauce");
-        driver.findElement(By.cssSelector("#login-button")).click();
+                String username = "standard_user";
+                String password = "secret_sauce";
+                TestUtils.performLogin(driver, username, password);
 
-        String currentURL = driver.getCurrentUrl();
+                String currentURL = driver.getCurrentUrl();
         Assert.assertEquals(currentURL, "https://www.saucedemo.com/inventory.html", "URL does not match");
 
         WebElement productsTitleElement = driver.findElement(By.cssSelector("#header_container > div.header_secondary_container > span"));

@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
+import tests.utils.TestData;
 import tests.utils.TestUtils;
 
 public class ValidateLockedUserError {
@@ -15,7 +16,7 @@ public class ValidateLockedUserError {
     driver = new ChromeDriver();
     driver.get("https://www.saucedemo.com");
     }
-    @Test(dataProvider = "loginDataError", dataProviderClass = TestUtils.class)
+    @Test(dataProvider = "loginDataError", dataProviderClass = TestData.class)
     public void testLogin(String username, String password, String expectedErrorMessage) {
     TestUtils.performLogin(driver, username, password);
 
