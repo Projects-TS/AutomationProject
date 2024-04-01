@@ -1,7 +1,6 @@
 package tests.utils;
 
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
 public class TestData {
     // set 1
@@ -15,7 +14,6 @@ public class TestData {
                 {"visual_user", "secret_sauce"}
         };
     }
-
     // set 2
     @DataProvider(name = "loginDataError")
     public static Object[][] provideLoginDataError() {

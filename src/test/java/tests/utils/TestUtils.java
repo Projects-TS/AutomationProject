@@ -1,8 +1,6 @@
 package tests.utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.DataProvider;
-
 public class TestUtils {
 
     // set 1
@@ -14,4 +12,3 @@ public class TestUtils {
         driver.findElement(By.id("login-button")).click();
     }
     }
-    // set 2
