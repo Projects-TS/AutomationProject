@@ -20,12 +20,19 @@ public class TestData {
     @DataProvider(name = "loginDataError")
     public static Object[][] provideLoginDataError() {
         return new Object[][]{
-                {"standard_user", "wrong_password", "Epic sadface: Username and password do not match any user in this service"},
+                {"standard_user", "wrong_password", "Epic sadface: Username and password do not match any user in this service",},
                 {"locked_out_user", "secret_sauce", "Epic sadface: Sorry, this user has been locked out."},
                 {"non_existent_user", "wrong_password", "Epic sadface: Username and password do not match any user in this service"},
                 {"", "secret_sauce", "Epic sadface: Username is required"},
                 {"standard_user", "", "Epic sadface: Password is required"},
                 {"", "", "Epic sadface: Username is required"},
+        };
+    }
+    // set 3
+    @DataProvider(name = "getURL")
+    public static Object[][] URL() {
+        return new Object[][]{
+                {"https://www.saucedemo.com/"},
         };
     }
 }
